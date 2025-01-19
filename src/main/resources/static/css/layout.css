@@ -1,0 +1,132 @@
+/*
+ *  Disposition des éléments dans la page.
+ *  menu horizontal en-dessous de l'entête.
+ *  
+ *  Par défaut: pas de aside (body.left-aside et body.right-aside pour en avoir un)
+ *  + alignement d'éléments dans un bloc : .center, .right (via flex)
+ */
+
+@import "color.css";
+@import "font.css";
+
+body {
+    display: grid;
+    grid-template-areas: 
+        "header" 
+        "menu" 
+        "content" 
+        "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 0px;
+    min-height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body.aside-left {
+    display: grid;
+    grid-template-areas: 
+        "header header" 
+        "menu menu" 
+        "side content" 
+        "side footer";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 0px;
+    min-height: 100vh;
+}
+
+body.aside-right {
+    grid-template-areas: 
+        "header header" 
+        "menu menu" 
+        "content side" 
+        "footer side";
+    grid-template-columns: 4fr 1fr;
+}
+
+/*** Identification des parties ***/
+
+header {grid-area: header}
+nav {grid-area: menu}
+main {grid-area: content; }
+footer {grid-area: footer}
+aside {grid-area: side;}
+
+/*** Général ***/
+
+body {
+    margin: 0px;
+}
+
+/*** Entête ***/
+
+body > header {
+    background-color: var(--primary-color);
+    color: var(--primary-lighter-color);
+    background-image: url("HE2B-Logo-ESI-neg.png");
+    background-repeat: no-repeat;
+    background-position-x: 1em;
+    background-position-y: center;
+    background-size: 80px;
+}
+
+body > header h1 {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+}
+
+body > header h2 {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: -.8em;
+}
+
+/*** aside ***/
+
+aside {
+    background-color: var(--primary-lighter-color);
+}
+
+aside h1 {
+    text-align: center;
+}
+
+/*** Footer ***/
+
+body > footer {
+    color: var(--neutral-color);
+    margin-top: 1em;
+    margin-right: .5em;
+    padding-left: 5em;
+    border-top: thin solid var(--neutral-color);
+    justify-self: right;
+}
+
+/*** Main ***/
+
+main {
+    margin: .5em .5em 0em .5em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*** Menu ***/
+
+nav {
+    position: sticky;
+    top : 0em;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+}

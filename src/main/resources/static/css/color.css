@@ -1,0 +1,19 @@
+/* Couleurs utilisées tout au long du projet */
+:root {
+    --primary-color: hsl(249, 63%, 43%);
+    --primary-lighter-color: hsl(249, 68%, 96%);
+    --primary-light-color: hsl(249, 68%, 60%);
+    --primary-dark-color: hsl(249, 68%, 25%);
+    --primary-darker-color: hsl(249, 68%, 5%);
+
+    --secondary-color: hsl(26, 68%, 43%);
+    --secondary-light-color: hsl(26, 68%, 60%);
+    --secondary-dark-color: hsl(26, 68%, 25%);
+
+    --neutral-color: gray;
+    --neutral-light-color: lightgray;
+    --info-color: blue;
+    --success-color: green;
+    --warning-color: orange;
+    --danger-color: red;    
+}

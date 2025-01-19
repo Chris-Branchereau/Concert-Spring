@@ -1,0 +1,24 @@
+table  {
+    border: thin solid var(--primary-dark-color);
+    border-spacing: 0px;
+    border-collapse: collapse;
+    box-shadow: .1em .1em .2em grey;
+}
+
+thead {
+    box-shadow: .1em .1em .2em grey;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--primary-lighter-color);
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: var(--primary-lighter-color);
+}
+
+th, td {
+    padding: .2em .4em;
+}
