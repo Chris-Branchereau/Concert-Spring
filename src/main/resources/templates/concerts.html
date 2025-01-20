@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html layout:decorate="~{home}" lang="fr"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESIConcerts</title>
+</head>
+<body>
+    <main layout:fragment="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Tournée</th>
+                    <th>Artiste</th>
+                    <th>Salle</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="concert : ${concerts}">
+                    <td><a th:href="|tours/${concert.tour.id}|" th:text="${concert.tour.title}">Marvel Studios Infinity Saga Tour</a></td>
+                    <td th:text="${concert.tour.artist}">GREENHOUSE TALENT</td>
+                    <td th:text="${concert.venue.name}">Palais 12</td>
+                    <td th:text="${concert.time}">2025-05-28T20:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
