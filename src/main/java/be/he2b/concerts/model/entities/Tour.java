@@ -1,13 +1,10 @@
-package be.he2b.concerts.model;
+package be.he2b.concerts.model.entities;
 
 import java.util.Collection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,18 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Venue {
+public class Tour {
     @Id
     private Long id;
     @NotBlank
-    private String name;
-    @NotNull
-    private int capacity;
+    private String title;
     @NotBlank
-    private String address;
-    @Enumerated(EnumType.STRING)
-    private VenueType type;
-    @OneToMany(mappedBy = "venue")
+    private String artist;
+    @OneToMany(mappedBy = "tour")
     private Collection<Concert> concerts;
-
 }

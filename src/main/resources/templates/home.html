@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html layout:decorate="~{layout}" lang="fr"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESIConcerts</title>
-    <link rel="stylesheet" th:href="@{/css/all.css}" />
 </head>
 <body>
-    <header>
-        <h1>ESIConcerts - Catalogue des concerts</h1>
-    </header>
-    <nav>
-        <ul class="menu">
-            <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
-            <li><a href="/concerts">Concerts</a></li>
-        </ul>
-    </nav>
     <main layout:fragment="content">
-        Bienvenue sur ESIConcerts, la plateforme de référencement des concerts de l'ESI.
+        <p>Bienvenue sur ESIConcerts, la plateforme de référencement des concerts de l'ESI.</p>
     </main>
-    <footer>HE2B/ÉSI - 3WEB2a - Janvier 2025 - gXXXXX</footer>
 </body>
 </html>

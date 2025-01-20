@@ -1,4 +1,4 @@
-package be.he2b.concerts.model;
+package be.he2b.concerts.model.entities;
 
 import java.time.LocalDateTime;
 

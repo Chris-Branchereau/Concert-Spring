@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}" lang="fr"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESIConcerts</title>
+</head>
+<body>
+    <main layout:fragment="content">
+        <h2 th:unless="${title.isEmpty()}" th:text="| Tournée :  ${title}|">Tournée : The Eras Tour</h2>
+        <p th:unless="${artist.isEmpty()}" th:text="| Artiste : ${artist}|">Artiste : Taylor Swift</p>
+        <p th:if="${title.isEmpty()}">Aucune Tournée</p>
+        <h3>Concerts</h3>
+        <div>
+            <table th:unless="${concerts.isEmpty()}">
+                <thead>
+                    <tr>
+                        <th>Tournée</th>
+                        <th>Artiste</th>
+                        <th>Salle</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="concert : ${concerts}">
+                        <td  th:text="${concert.tour.title}">Marvel Studios Infinity Saga Tour</td>
+                        <td th:text="${concert.tour.artist}">GREENHOUSE TALENT</td>
+                        <td th:text="${concert.venue.name}">Palais 12</td>
+                        <td th:text="${concert.time}">2025-05-28T20:00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p th:if="${concerts.isEmpty()}">Aucun concert.</p>
+        </div>
+    </main>
+</body>
+</html>
