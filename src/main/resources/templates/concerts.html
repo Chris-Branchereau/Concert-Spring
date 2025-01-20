@@ -8,24 +8,52 @@
 </head>
 <body>
     <main layout:fragment="content">
-        <table>
-            <thead>
+        <div class="row">
+            <table>
+                <thead>
                 <tr>
                     <th>Tournée</th>
                     <th>Artiste</th>
                     <th>Salle</th>
                     <th>Date</th>
                 </tr>
-            </thead>
-            <tbody>
-                <tr th:each="concert : ${concerts}">
-                    <td><a th:href="|tours/${concert.tour.id}|" th:text="${concert.tour.title}">Marvel Studios Infinity Saga Tour</a></td>
-                    <td th:text="${concert.tour.artist}">GREENHOUSE TALENT</td>
-                    <td th:text="${concert.venue.name}">Palais 12</td>
-                    <td th:text="${concert.time}">2025-05-28T20:00</td>
-                </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <tr th:each="concert : ${concerts}">
+                        <td><a th:href="|tours/${concert.tour.id}|" th:text="${concert.tour.title}">Marvel Studios Infinity Saga Tour</a></td>
+                        <td th:text="${concert.tour.artist}">GREENHOUSE TALENT</td>
+                        <td th:text="${concert.venue.name}">Palais 12</td>
+                        <td th:text="${concert.time}">2025-05-28T20:00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form action="/concerts" th:object="${concert}" method="POST">
+                <h2>Ajouter un concert</h2>
+                <label for="tour">Tournée</label>
+                <div>
+                <select id="tour" name="tour" th:field="*{tour}" th:errorclass="fieldError"  required>
+                    <option  th:each="tour : ${tours}" th:value="${tour.id}" th:text="${tour.title}">Marvel Studios Infinity Saga Tour</option>
+                </select>
+                <span class="fieldError">Le concert doit avoir une tournée</span>
+                </div>
+        
+                <label for="venue">Salle</label>
+                <div>
+                <select id="venue" name="venue" th:field="*{venue}" th:errorclass="fieldError"  required>
+                    <option th:each="venue : ${venues}" th:value="${venue.id}" th:text="${venue.name}">Stade Roi Baudoin</option>
+                </select>
+                <span class="fieldError">Le concert doit être dans une Salle</span>
+                </div>
+        
+                <label for="time">Date et heure</label>
+                <div>
+                    <input type="datetime-local" name="time" id="time" value="" th:field="*{time}" th:errorclass="fieldError">
+                    <span class="fieldError">Le concert doit avoir une date</span>
+                </div>
+                
+                <button class="btn center" type="submit">Ajouter</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
