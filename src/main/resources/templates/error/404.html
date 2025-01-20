@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Erreur</title>
+</head>
+<body>
+    <main layout:fragment="content">
+        <p>Une erreur s'est produite.</p>
+        <p th:text="${error}">Error : </p>
+        <p>Retour à la <a href="/">page d'accueil</a></p>
+    </main>
+</body>
+</html>
