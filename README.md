@@ -4,7 +4,7 @@ This is a small Spring Boot application designed to manage various concert event
 
 ## Overview
 - **Type:** School / Personal Project
-- **Language(s):** Java - Spring Boot
+- **Language(s):** Java Maven - Spring Boot
 - **Author:** Chris Branchereau
 
 ## Features
